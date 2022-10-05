@@ -1,0 +1,22 @@
+
+Learning Report - 1:
+
+Date: Oct 04, 2022 - Tuesday
+By: Krithiga Shankar
+
+Tech: 
+Financial Analysis in Integration Management
+1. Learnt about how to perform financial analysis - 3 hours
+2. Primary methods for determining the projected financial values of projects such as:
+    a. Net Present Value (NVP).
+    b. Return On Investment.
+    c. Payback Analysis
+3. Calculated the NPV & ROI to recommend whether to invest in a project or not based on the given estimated cost, estimated benefits for 4 years and discount rate of 7%. Also determined payback year of the investment.
+
+Probability Distribution
+1. Hypergeometeric Distribution
+2. Worked out few usecases applying hypergeometric distribution formula manually and tried in R.
+3. Also derived mean, variance and standart deviation. 
+
+Positivity:
+1. I got to know about how a project management handle finances while investing in a project.

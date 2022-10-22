@@ -1,0 +1,2118 @@
+
+
+
+Industrial Strength 100 Commands
+
+
+------------------------------------------------------------------------------------
+
+Ubuntu Commands - Course:
+
+
+# 01
+
+Senario:
+I want to get into the directory or change directory. How do I do it?
+
+cd
+
+cd ..
+    cd.. is not gonna work
+
+cd ~/
+
+cd - 
+    It will go to previous folder form your history
+
+------------------------------------------------------------------------------------
+
+# 02
+
+Senario:
+show the current directory
+
+pwd
+    print working directory
+
+pwd logical vs physical
+
+pwd -L
+    /Users/tactlabs/d/tact_space/tact_txts
+
+pwd -P
+    /Users/tactlabs/d/tact_space/tact_txts
+
+
+    https://phoenixnap.com/kb/pwd-linux
+
+------------------------------------------------------------------------------------
+
+
+# 03
+	
+Crate a directory
+
+mkdir
+    make directory
+
+mkdir one
+
+mkdir {"two", "three"}
+
+mkdir –m777 DirM
+
+mkdir -p
+
+mkdir -p five/six/seven
+
+
+https://phoenixnap.com/kb/create-directory-linux-mkdir-command
+
+
+------------------------------------------------------------------------------------
+
+# 04
+
+show files under a folder
+
+ls
+
+ls -h
+
+ls -a
+
+ls -l
+
+ls -hal
+
+ls -a -h -l
+
+ls -A
+
+
+HAL Story 
+    Google can waste your time
+	
+
+https://techpiezo.com/linux/ls-command-in-ubuntu/
+
+	
+------------------------------------------------------------------------------------
+
+# 05
+	
+Install zsh and powerline
+
+------------------------------------------------------------------------------------
+
+# 06
+
+git
+
+git add . 
+git add *
+git commit -m "commit message"
+git push
+
+------------------------------------------------------------------------------------
+
+
+# 07
+	
+echo
+echo $PATH
+
+------------------------------------------------------------------------------------
+
+# 08
+
+?
+
+------------------------------------------------------------------------------------
+
+# 09
+	
+jobs
+
+------------------------------------------------------------------------------------
+
+
+# 10 
+
+fg
+	
+
+See the background jobs
+
+jobs
+fg -> bring back
+
+    https://stackoverflow.com/questions/14099343/how-to-bring-a-background-program-to-foreground
+
+    https://linuxhandbook.com/run-process-background/
+
+------------------------------------------------------------------------------------
+
+#11
+	
+df -h
+
+df -l
+
+I need to know which folder taking most 
+
+df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        16G  8.9G  6.7G  58% /
+devtmpfs        3.9G     0  3.9G   0% /dev
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           795M   87M  709M  11% /run
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+/dev/loop0       25M   25M     0 100% /snap/amazon-ssm-agent/4046
+/dev/loop1       56M   56M     0 100% /snap/core18/2284
+/dev/loop7      118M  118M     0 100% /snap/docker/1458
+/dev/loop11      44M   44M     0 100% /snap/snapd/14978
+/dev/loop6       27M   27M     0 100% /snap/amazon-ssm-agent/5163
+tmpfs           795M     0  795M   0% /run/user/1000
+/dev/loop4       62M   62M     0 100% /snap/core20/1361
+/dev/loop2       68M   68M     0 100% /snap/lxd/22526
+/dev/loop9       62M   62M     0 100% /snap/core20/1376
+/dev/loop3       44M   44M     0 100% /snap/snapd/15177
+/dev/loop12      56M   56M     0 100% /snap/core18/2344
+/dev/loop5      118M  118M     0 100% /snap/docker/1690
+/dev/loop10      68M   68M     0 100% /snap/lxd/22753
+
+https://manpages.ubuntu.com/manpages/bionic/man1/df.1.html
+
+------------------------------------------------------------------------------------
+
+
+# 12
+
+top
+	
+------------------------------------------------------------------------------------
+
+# 13
+
+ssh 
+    ssh -i "sc-dev.pem" ubuntu@ec2-3-138-143-248.us-east-2.compute.amazonaws.com
+
+
+------------------------------------------------------------------------------------
+
+# 14
+
+scp
+scp -i /Users/str-kwml0011/Desktop/plog-a/kwikee-raja.pem ubuntu@ec2-3-16-218-151.us-east-2.compute.amazonaws.com:/home/ubuntu/db/category_search_aug8.db /Users/str-kwml0011/db/.
+
+scp -i "~/.ssh/sc-dev.pem" ubuntu@13.59.7.109:/home/ubuntu/etlprod/sc-etl-prod/scetl_prod.log /Users/str-kwml0020/datasets/sclogs/scetl_prod_20220428.log
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 15
+
+Delete lines in a text file
+
+delete 10-12 lines in a 100 line file
+
+------------------------------------------------------------------------------------
+
+# 16
+
+find how many lines in the file
+
+wc -l abc.txt
+6
+
+wc abc.txt
+
+wc -c abc.txt
+
+https://cmdlinetips.com/2011/08/how-to-count-the-number-of-lines-words-and-characters-in-a-text-file-from-terminal/
+https://askubuntu.com/questions/442914/calculating-the-number-of-lines-in-a-file
+
+
+------------------------------------------------------------------------------------
+
+# 17
+
+Remove first n lines in file
+
+sed '2,4d' file
+
+sed 1,42d dump.sql
+
+
+https://askubuntu.com/questions/410196/remove-first-n-lines-of-a-large-text-file
+------------------------------------------------------------------------------------
+
+
+# 18
+	
+How to change the file immutable
+
+set
+sudo chattr +i /etc/resolve.conf
+
+remove
+sudo chattr -i /etc/resolve.conf
+
+https://askubuntu.com/questions/736331/how-do-i-change-nameserver-in-ubuntu
+
+------------------------------------------------------------------------------------
+
+# 19
+
+How to update /etc/resolv.conf
+
+
+sudo apt-get update -y
+sudo apt-get install -y resolvconf
+
+nameserver 1.1.1.1
+
+
+https://askubuntu.com/questions/130452/how-do-i-add-a-dns-server-via-resolv-conf 
+
+
+------------------------------------------------------------------------------------
+
+
+# 20
+	
+How to check the DB connection?
+
+telnet scheduler.cmuq9py90auz.us-east-1.rds.amazonaws.com 5432
+telnet sc-aurora-prod-cluster.cluster-cdep7wseru0n.us-east-2.rds.amazonaws.com 5432
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 21
+
+
+I want to print the name server of my EC2
+
+how to create a script to print only nameserver
+
+cat /etc/resolv.conf
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 22
+
+
+curl 
+
+    https://admin.dev.scrapercentral.com
+
+    https://dev.scrapercentral.com
+
+
+    curl http://wiki.tactii.com/
+
+    curl -k https://www.wikipedia.org/
+
+
+    curl --insecure http://wiki.tactii.com/
+
+
+    curl -k http://wiki.tactii.com/
+
+    curl https://time.is/
+
+
+    curl -v  http://wiki.tactii.com/
+
+    curl -v -k https://www.wikipedia.org/
+
+    curl --no-verbose http://example.com
+
+
+    https://bytexd.com/basics-http-requests-curl-tutorial/
+    https://frameboxxindore.com/linux/what-is-curl-in-ubuntu.html
+    https://blog.pair.com/2018/01/26/curl-description-basic-use-cases/
+    https://www.poftut.com/how-to-use-curl-with-https-protocol-and-urls/
+
+------------------------------------------------------------------------------------
+
+# 23
+
+
+How to get the internal IP?
+
+    ifconfig
+    sudo apt install net-tools
+
+------------------------------------------------------------------------------------
+
+
+# 24
+
+
+How to make a file immutable?
+
+sudo chattr +i abc.txt
+
+How to verify a file immutable?
+
+    before:
+        
+
+        lsattr abc.txt
+        --------------e----- abc.txt
+
+    after:
+
+        lsattr abc.txt
+        ----i---------e----- abc.txt
+
+        echo "three" >> abc.txt
+        -bash: abc.txt: Operation not permitted
+        
+
+        rm -rf abc.txt
+        rm: cannot remove 'abc.txt': Operation not permitted
+
+
+remove
+    sudo chattr -i abc.txt
+    
+
+
+https://www.debuntu.org/how-to-make-a-file-immutablewrite-protected/
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 25
+
+cat .env | grep "ENV_IP"
+
+    cat .env | grep "ENV_IP"
+        ENV_IP=18.221.155.99
+
+------------------------------------------------------------------------------------
+
+
+# 26
+
+
+cat /etc/hosts
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 27
+
+
+?
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 28
+
+How to restart the network manager?
+
+sudo service network-manager restart
+
+sudo service network-manager status
+
+sudo /etc/init.d/network-manager restart
+
+
+https://askubuntu.com/questions/59458/error-message-sudo-unable-to-resolve-host-none
+
+
+------------------------------------------------------------------------------------
+
+
+# 29
+
+
+vnstat
+
+sudo apt install vnstat
+
+
+https://linuxhint.com/top-10-ubuntu-network-tools/
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 30
+
+
+
+?
+
+
+------------------------------------------------------------------------------------
+
+
+# 31
+
+
+Open SSL:
+
+openssl s_client -connect reqres.in:443
+
+
+openssl s_client -tls1 -connect reqres.in:443
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 32
+
+
+SSL issues
+
+https://stackoverflow.com/questions/48125215/libcurl-link-time-ssl-backend-openssl-is-different-from-compile-time-ssl-backe
+
+
+brew upgrade
+brew uninstall curl
+brew install curl-openssl
+echo 'export PATH="/usr/local/opt/curl-openssl/bin:$PATH"' >> ~/.zshrc
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 33
+
+date
+date -u
+
+It will print date on UTC timezone
+
+
+https://www.shell-tips.com/linux/how-to-format-date-and-time-in-linux-macos-and-bash/
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 34
+
+
+Delete lines in a text file
+
+https://www.baeldung.com/linux/delete-lines-containing-string-from-file
+
+
+
+sed '2,4d' file
+https://grabthiscode.com/shell/delete-lines-text-file-linux
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 35
+
+?
+
+------------------------------------------------------------------------------------
+
+
+# 36
+
+
+Remove first n lines in file?
+
+https://askubuntu.com/questions/410196/remove-first-n-lines-of-a-large-text-file
+
+
+sed -i 1,1800000d /home/ubuntu/etlbase/sc-etl-prod/scetl_prod.log
+
+sed -i 1,8000d /home/ubuntu/etlbase/sc-etl-dev/scetl_dev.log
+
+
+tail -n 10000 /home/ubuntu/etlbase/sc-etl-prod/scetl_prod.log
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 36.1
+
+snap
+
+snap vs flatpak vs appimage
+
+
+    https://phoenixnap.com/kb/flatpak-vs-snap-vs-appimage
+
+------------------------------------------------------------------------------------
+
+
+# 37
+
+wget https://images.rappi.com.mx/products/976305659-1575068585894.png -P /tmp/
+
+wget https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-zip-file.zip -P /tmp/
+
+
+https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-zip-file.zip
+
+
+37.1:
+wget -O foo.html google.com
+    -- this will save foo.html instead of index.html
+
+    https://stackoverflow.com/questions/16678487/wget-command-to-download-a-file-and-save-as-a-different-filename
+
+
+37.2:
+wget http://example.com/images/{1..50}.jpg
+https://www.hostinger.com/tutorials/wget-command-examples/
+
+
+37.3:
+wget --user=remote_user --password=SECRET ftp://ftp.example.com/file.ext
+https://askubuntu.com/questions/29079/how-do-i-provide-a-username-and-password-to-wget
+
+------------------------------------------------------------------------------------
+
+
+# 38
+
+
+How to use EOT in cat?
+
+    cat <> /Users/str-kwml0020/tprojects/one.txt
+    # Test One
+    Test Two
+    EOT
+    
+    https://stackoverflow.com/questions/59774143/use-cat-eot-to-insert-actual-strings-and-escape-logic
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 39
+
+Systemctl and service
+
+https://linuxhint.com/systemctl-ubuntu/
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 40
+
+
+https://askubuntu.com/questions/484718/how-to-make-a-file-executable
+
+
+touch /usr/local/bin/minio
+sudo chmod +x /usr/local/bin/minio
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 41
+
+apt show package_name
+
+https://itsfoss.com/apt-search-command/
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 42
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 43
+
+
+sudo du -sh /var/*
+
+sudo du -sh /var/*
+1.9M    /var/backups
+299M    /var/cache
+4.0K    /var/crash
+2.2G    /var/lib
+4.0K    /var/local
+0   /var/lock
+371M    /var/log
+4.0K    /var/mail
+4.0K    /var/opt
+0   /var/run
+724K    /var/snap
+32K /var/spool
+40K /var/tmp
+12K /var/www
+
+
+https://ipfail.org/linux/du-get-the-size-of-a-folder-in-ubuntu-linux/
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 44
+
+
+sudo du -h --max-depth=1 /var
+
+du -h /var/ | sort -rh | head -10
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 45
+
+
+/home/ubuntu/etlbase/sc-etl-prod/scetl_prod.log
+
+
+I want to keep only last 10 lines and remove the rest
+
+
+# this will delete 2-4 and 6th line
+sed '0,236d' /home/ubuntu/etlbase/sc-etl-prod/scetl_prod.log
+    not working
+
+
+
+sed '2,100!d' /home/ubuntu/etlbase/sc-etl-prod/scetl_prod.log
+
+https://askubuntu.com/questions/992213/how-to-delete-specific-lines-from-a-txt-file
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 46
+
+
+wc -l /home/ubuntu/etlbase/sc-etl-prod/scetl_prod.log
+2363634
+
+sed '1,10!d' /home/ubuntu/etlbase/sc-etl-prod/scetl_prod.log
+
+
+sed -e '0;2363604d' /home/ubuntu/etlbase/sc-etl-prod/scetl_prod.log
+not working
+
+
+wc -l /home/ubuntu/etlbase/sc-etl-dev/scetl_dev.log
+11816
+
+
+
+https://www.mytechmint.com/sed-command-to-delete-lines-in-file-in-linux-with-examples/
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 47
+
+get the full path of a file in terminal
+
+
+readlink -e ./const.py
+/home/ubuntu/etlbase/sc-etl-dev/const.py
+
+
+readlink -e const.py
+
+
+https://askubuntu.com/questions/871460/show-full-path-to-file-in-terminal
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 48
+
+
+sudo apt install copyq
+
+I have installed many commands like above. Tell me what are the things I have installed by journalctl
+
+
+
+------------------------------------------------------------------------------------
+
+# 49
+
+
+Scenario:
+
+I'm trying to set up a simple systemd timer to run a bash script every day at midnight.
+
+https://stackoverflow.com/questions/45776003/fixing-a-systemd-service-203-exec-failure-no-such-file-or-directory
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 50
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 51
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 52
+
+
+
+
+Why gksu removed?
+
+https://itsfoss.com/gksu-replacement-ubuntu/
+
+
+
+
+
+
+
+
+Open ssl commands
+
+
+------------------------------------------------------------------------------------
+
+# 53
+
+kill port
+
+sudo lsof -t -i:80
+
+sudo kill $(sudo lsof -t -i:80)
+
+
+------------------------------------------------------------------------------------
+
+# 54
+
+
+Change crontab editor
+
+EDITOR=nano crontab -e
+https://www.unixtutorial.org/visual-crontab-editor-in-macos/
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 55
+
+https://unix.stackexchange.com/questions/77933/using-devtmpfs-for-dev
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+How to insatall apache2?
+
+sudo apt install apache2
+
+sudo systemctl status apache2 --no-pager
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 56
+
+echo $PATH
+
+
+
+------------------------------------------------------------------------------------
+
+# 57
+
+I have a log file. I need to get the subset lines for only specific day
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 58
+
+I have a log file. I want to keep only last 1000 lines.
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 59
+
+
+Assertion failed error
+
+https://mellowhost.com/blog/linux-assertion-failed-on-job-for-iptables-service.html
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 60
+
+brew install git
+
+
+------------------------------------------------------------------------------------
+
+# 61
+
+curl
+
+
+https://www.how2shout.com/linux/install-and-use-curl-on-debian-11-bullseye-linux/
+
+
+------------------------------------------------------------------------------------
+
+# 62
+
+https://www.shellhacks.com/alpine-install-curl/
+
+
+
+------------------------------------------------------------------------------------
+
+# 63
+
+
+req:
+I want to copy dev.log to dev-1.log and delete dev.log. Also, I want to keep only 10 lines from dev.log when I generate new dev.log file.
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 64
+
+
+Sit:
+You have to be careful abour reverse search option. You might delete import files.
+
+
+
+------------------------------------------------------------------------------------
+
+# 65
+
+https://www.pixelstech.net/article/1514049471-Check-whether-a-remote-server-port-is-open-on-Linux
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 66
+
+I have a csv file. I need to know how many rows I have with a help of Pandas.
+It should be a script (sh) file and need to integrate with 
+
+lsd abc.csv
+ls sitems_prod_2022-03-13.csv
+
+tlsd (tact ls details)
+
+
+
+------------------------------------------------------------------------------------
+
+# 67
+
+Nano with linenumbers
+
+https://monovm.com/blog/how-to-display-line-numbers-in-nano-editor/
+
+
+
+------------------------------------------------------------------------------------
+
+# 68
+
+Sleep in shell script
+
+https://stackpointer.io/script/sleep-shell-script/304/
+
+sleep NUMBER[SUFFIX]
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 69
+
+find / -type f -size +1G
+
+find . -type f -size +4M
+
+find /home/ubuntu -type f -size +1G
+
+
+https://ostechnix.com/find-files-bigger-smaller-x-size-linux/
+
+
+
+------------------------------------------------------------------------------------
+
+# 70
+
+
+keep the start watch on the right side of the terminal + zsh
+
+https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+
+
+
+------------------------------------------------------------------------------------
+
+# 71
+
+I want to see which folder holds the max storage
+
+
+------------------------------------------------------------------------------------
+
+# 72
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 73
+
+
+
+------------------------------------------------------------------------------------
+
+
+# 74
+
+INFO:root: Wed May 11 18:00:02 2022: job_id :  58884 
+INFO:root: Wed May 11 18:00:02 2022: schedule_id : 57675, job_id : 58884 
+INFO:root: Wed May 11 18:00:02 2022: job_url :  https://dev.scrapercentral.com/run_schedule/57704 
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): dev.scrapercentral.com:443
+DEBUG:urllib3.connectionpool:https://dev.scrapercentral.com:443 "GET /run_schedule/57704 HTTP/1.1" 201 314
+INFO:root: Wed May 11 18:00:03 2022: job_id :  58885 
+INFO:root: Wed May 11 18:00:03 2022: schedule_id : 57704, job_id : 58885 
+INFO:root: Wed May 11 18:00:04 2022: job_url :  https://dev.scrapercentral.com/run_schedule/57727 
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): dev.scrapercentral.com:443
+DEBUG:urllib3.connectionpool:https://dev.scrapercentral.com:443 "GET /run_schedule/57727 HTTP/1.1" 201 314
+INFO:root: Wed May 11 18:00:05 2022: job_id :  58886 
+INFO:root: Wed May 11 18:00:05 2022: schedule_id : 57727, job_id : 58886 
+INFO:root: Wed May 11 18:00:05 2022: job_url :  https://dev.scrapercentral.com/run_schedule/57750 
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): dev.scrapercentral.com:443
+DEBUG:urllib3.connectionpool:https://dev.scrapercentral.com:443 "GET /run_schedule/57750 HTTP/1.1" 201 314
+INFO:root: Wed May 11 18:00:05 2022: job_id :  58887 
+INFO:root: Wed May 11 18:00:05 2022: schedule_id : 57750, job_id : 58887 
+INFO:root: Wed May 11 18:00:05 2022: job_url :  https://dev.scrapercentral.com/run_schedule/57773 
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): dev.scrapercentral.com:443
+ERROR:root: Wed May 11 18:00:05 2022: get_vw_table_dataNo Data available 12876 
+INFO:root: Wed May 11 18:00:05 2022: No data found 
+
+
+I have to find only schedule_id. How do I get it?
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 75
+
+screen
+
+https://linuxhint.com/screen_command_ubuntu/
+
+
+------------------------------------------------------------------------------------
+
+# 76
+
+sed advanced
+
+# insert a blank line above every line which matches "regex"
+ sed '/regex/{x;p;x;}'
+
+https://github.com/rajasgs/1LineLinux/blob/master/sed1line.txt
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 77
+
+# insert a blank line above and below every line which matches "regex"
+ sed '/regex/{x;p;x;G;}'
+
+
+https://github.com/rajasgs/1LineLinux/blob/master/sed1line.txt
+
+------------------------------------------------------------------------------------
+
+# 78
+
+
+# substitute "foo" with "bar" ONLY for lines which contain "baz"
+ sed '/baz/s/foo/bar/g'
+
+
+https://github.com/rajasgs/1LineLinux/blob/master/sed1line.txt
+
+
+
+------------------------------------------------------------------------------------
+
+# 79
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 80
+
+
+Kernel Panic
+
+https://lynxbee.com/how-to-force-panic-linux-kernel-intentionally/#.Yt_uoPOsnjC
+
+https://ubuntu.com/server/docs/kernel-crash-dump
+
+https://www.kernel.org/doc/Documentation/kdump/kdump.txt
+
+
+------------------------------------------------------------------------------------
+
+# 81
+
+vi show with line
+
+
+permanent:
+vim ~/.vimrc
+:set number
+
+https://linuxize.com/post/how-to-show-line-numbers-in-vim/
+
+
+------------------------------------------------------------------------------------
+
+# 82
+
+
+https://www.how2shout.com/linux/linux-system-info-commands-using-terminal/
+
+
+
+------------------------------------------------------------------------------------
+
+# 83
+
+cat const.py | xclip -sel clip
+
+cat ./const.py|xclip -i
+
+DISPLAY=:0 cat ./const.py|xclip -i
+
+cat ./const.py|xclip -i
+
+sudo apt-get install xorg
+
+copyq action "cat /home/ubuntu/etlbase/sc-etl-dev/const.py" "" && copyq select 0
+
+
+https://fedingo.com/how-to-copy-file-to-clipboard-in-ubuntu/
+
+status:
+Still buggy. Not able to find the right solution for it.
+
+
+https://askubuntu.com/questions/11925/a-command-line-clipboard-copy-and-paste-utility
+
+------------------------------------------------------------------------------------
+
+# 84
+
+telnet pccprod-sqlserver.database.windows.net 1433
+
+
+------------------------------------------------------------------------------------
+
+# 85
+
+vi
+
+:set nu
+    set line numbers
+
+
+------------------------------------------------------------------------------------
+
+# 86
+
+
+Where is Zsh?
+
+~/.zshrc
+
+https://osxdaily.com/2021/11/18/where-the-zshrc-file-is-located-on-mac/
+
+
+
+------------------------------------------------------------------------------------
+
+# 87
+
+
+history
+
+history 10
+
+history | tail -n 10
+
+!12469
+    repeat 12469 command
+
+history | grep aliases
+
+history | grep 
+
+history -d 83
+    delete the 83rd command
+
+https://www.howtogeek.com/465243/how-to-use-the-history-command-on-linux/
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 88
+
+curl
+
+curl -X 'GET' \
+  'http://0.0.0.0:8085/scrape/status' \
+  -H 'accept: application/json'
+{"result":[{"created_at":"2022-06-11","job_status":"DONE","retailer":"Big Lots","scrape_type":"Shelf and Category","header":"good","url":"https://www.biglots.com/c/furniture/accent-furniture/_/N-749701940","job_id":98698,"last_http_status":null,"result_status":"9"},{"created_at":"2022-06-11","job_status":"DONE","retailer":"Big Lots","scrape_type":"Product","header":"good","url":"https://www.biglots.com/product/p810475019","job_id":98996,"last_http_status":"200","result_status":"141"}]}%
+
+
+------------------------------------------------------------------------------------
+
+# 89
+
+How to get an IP?
+
+
+dig A sc-aurora-dev-cluster.cluster-cdep7wseru0n.us-east-2.rds.amazonaws.com +short
+
+
+sample:
+dig A sc-aurora-dev-cluster.cluster-cdep7wseru0n.us-east-2.rds.amazonaws.com +short
+sc-aurora-dev.cdep7wseru0n.us-east-2.rds.amazonaws.com.
+ec2-3-134-224-151.us-east-2.compute.amazonaws.com.
+3.134.224.151
+
+------------------------------------------------------------------------------------
+
+# 90
+
+df -h
+
+------------------------------------------------------------------------------------
+
+# 91
+
+replace in shell script
+
+sed -i "s|PROD_ENV_ON_DEV=0|PROD_ENV_ON_DEV=1|g" /home/ubuntu/etlbase/sc-etl-dev/.env
+
+
+sed -i "s|PROD_ENV_ON_DEV=1|PROD_ENV_ON_DEV=0|g" /home/ubuntu/etlbase/sc-etl-dev/.env
+
+https://stackoverflow.com/questions/8486967/replace-a-string-in-file-using-shell-script
+
+
+------------------------------------------------------------------------------------
+
+# 92
+
+
+I have contents inside custom_product_schedule_ids.txt
+
+I need to clear all contents without entering the file by using vi or such editors
+
+
+https://askubuntu.com/questions/390167/how-to-clear-text-in-a-file
+------------------------------------------------------------------------------------
+
+# 93
+
+history and grep
+
+history | grep "vector"
+ 1884  curl -1sLf   'https://repositories.timber.io/public/vector/cfg/setup/bash.deb.sh' | sudo -E bash
+ 1885  sudo apt-get install vector
+ 1886  cd /etc/vector/
+ 1888  cat vector.toml
+ 1892  nano vector.toml
+ 1893  sudo nano vector.toml
+ 1894  sudo service vector status
+ 1904  sudo nano vector.toml
+ 1905  sudo nano /etc/vector/vector.toml
+ 1908  sudo service vector status
+ 1938  cat /etc/vector/vector.toml
+ 2002  hisotry | grep "vector"
+ 2003  history | grep "vector"
+
+
+------------------------------------------------------------------------------------
+
+# 94
+
+
+copyT prod/dev
+    copy today
+
+    scp -i "~/.ssh/sc-dev.pem" ubuntu@13.59.7.109:/home/ubuntu/etlprod/sc-etl-prod/scetl_prod.log /Users/str-kwml0020/datasets/sclogs/scetl_prod_20220804_1.txt
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 95
+
+I need to know the history of today
+
+
+
+sudo nano /etc/td-agent/td-agent.conf
+  515  sudo service td-agent status
+  516  sudo service td-agent stop
+  517  sudo service vector status
+  518  sudo service td-agent status
+  519  exit
+  520  cd etlbase/sc-etl-dev/
+  521  cd /var/lib/jenkins/workspace/ETL/PG-Walmart-Store
+  522  ls
+  523  cd ETL
+  524  less scetl_prod.log
+  525  ping www.scrapercentral.com
+  526  ping scrapercentral.com
+  527  dig -A scrapercentral.com
+  528  dig A scrapercentral.com
+  529  vim /etc/resolv.conf
+  530  sudo vim /etc/resolv.conf
+  531  dig A scrapercentral.com
+  532  pwd
+  533  cd
+  534  telnet www.scrapercentral.com 443
+  535  telnet scrapercentral.com 443
+  536  cat /etc/resolv.conf
+  537  sudo vim /etc/resolv.conf
+  538  telnet scrapercentral.com 443
+  539  telnet www.scrapercentral.com 443
+  540  cat /etc/resolv.conf
+  541  sudo vim /etc/netplan/99-custom-dns.yaml
+  542  ifconfig
+  543  sudo vim /etc/netplan/99-custom-dns.yaml
+  544  cat /etc/netplan/99-custom-dns.yaml
+  545  sudo reboot
+  546  systemd-resolve --status
+  547  dig A scrapercentral.com
+  548  cd /var/lib/jenkins/workspace/ETL/PG-Walmart-Store/ETL
+  549  ls
+  550  tail -f scetl_prod.log
+  551  less scetl_prod.log
+  552  exit
+  553  clear
+  554  history
+
+
+------------------------------------------------------------------------------------
+
+# 96
+
+Dig in ubunut
+
+https://www.devsrealm.com/posts/1987890ba9466f1e/installing-and-using-dig-in-linux
+
+
+
+dig A scrapercentral.com
+
+; <<>> DiG 9.16.1-Ubuntu <<>> A scrapercentral.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 13771
+;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;scrapercentral.com.        IN  A
+
+;; ANSWER SECTION:
+scrapercentral.com. 36  IN  A   3.139.8.92
+scrapercentral.com. 36  IN  A   3.23.42.208
+scrapercentral.com. 36  IN  A   18.117.204.150
+
+;; Query time: 3 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Thu Aug 04 15:12:22 UTC 2022
+;; MSG SIZE  rcvd: 95
+
+
+------------------------------------------------------------------------------------
+
+# 97
+
+How to clear content in a file abc.txt
+
+> abc.txt
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+# 98
+
+delete all lines and keep only last n lines in text file + linux
+
+
+sed -i "1,$(($(wc -l < ytest.log)-2))\$d" ytest.log
+not working | need to fix it
+
+sed -i "1, 1200842d" scetl_prod.log
+
+sed -i "1, 1200842d" ytest.log
+working fine
+
+
+This will delete line 1-3
+sed -i "1,3d" ytest.log
+
+
+1201842 ztest.log
+
+
+------------------------------------------------------------------------------------
+
+# 99
+
+How to delete last n lines
+
+https://stackoverflow.com/questions/13380607/how-to-use-sed-to-remove-the-last-n-lines-of-a-file
+
+
+sed -i "$(($(wc -l < ytest.log)-2)),\$d" ytest.log
+
+
+
+------------------------------------------------------------------------------------
+
+# 100
+
+get number of lines in a text file + ubuntu
+
+wc -l myfile.sh
+https://askubuntu.com/questions/442914/calculating-the-number-of-lines-in-a-file
+
+
+
+------------------------------------------------------------------------------------
+
+# 101
+
+
+Delete first n lines
+
+sed -i "1,3d" ytest.log
+
+https://askubuntu.com/questions/410196/remove-first-n-lines-of-a-large-text-file
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+yum on ubuntu
+
+The last still-supported release of Ubuntu to provide yum was 18.04; you won’t find it in later releases.
+
+sudo apt install dnf
+
+
+https://unix.stackexchange.com/questions/673762/installing-yum-on-ubuntu
+
+
+------------------------------------------------------------------------------------
+
+
+dnf on ubuntu
+
+https://unix.stackexchange.com/questions/675976/unable-to-install-yum-dnf-on-ubuntu-20-04-3-lts
+
+https://www.linuxfordevices.com/tutorials/centos/dnf-command
+
+
+
+------------------------------------------------------------------------------------
+
+
+How to download and install deb
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+What is journalctl in Ubuntu?
+
+journalctl commands
+
+
+journalctl -f
+
+journalctl --list-boots
+    -7 a7ac95e6df00406891e35b9d46813340 Wed 2021-10-20 22:45:54 UTC—Mon 2021-12-13 00:07:44 UTC
+    -6 c8fcfe07cd4643309b8aca2d0cf9742e Mon 2021-12-13 00:16:37 UTC—Wed 2022-02-09 06:52:41 UTC
+    -5 c9c7850a645f46d3af4bfc74de2718ce Wed 2022-02-09 06:53:20 UTC—Wed 2022-04-27 19:07:21 UTC
+    -4 5495de4e5d3e42eebdb158db6bfedc72 Wed 2022-04-27 19:16:37 UTC—Thu 2022-07-14 14:38:37 UTC
+    -3 d00bfbf58be04a27a5c920c07221fa38 Thu 2022-07-14 14:39:15 UTC—Mon 2022-07-25 16:05:12 UTC
+    -2 e93079bc6c3a451d8d5eca983e172b4d Mon 2022-07-25 16:06:02 UTC—Mon 2022-07-25 16:06:09 UTC
+    -1 9953f50819ab488aa991e457b0399f39 Mon 2022-07-25 16:08:05 UTC—Mon 2022-07-25 16:48:45 UTC
+     0 ca44adad18294e48abc7df0e65343515 Mon 2022-07-25 17:39:01 UTC—Mon 2022-07-25 19:17:54 UTC
+
+
+journalctl -u systemd-journald
+
+
+journalctl -u systemd-shutdown
+
+
+journalctl -k
+    - Logs begin at Wed 2021-10-20 22:45:54 UTC, end at Mon 2022-07-25 19:17:54 UTC. --
+    Jul 25 17:39:01 ip-172-31-5-97 kernel: Linux version 5.15.0-1015-aws (buildd@lcy02-amd64-063) (gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #19~20.04.1-Ubuntu SMP Wed>
+    Jul 25 17:39:01 ip-172-31-5-97 kernel: Command line: BOOT_IMAGE=/boot/vmlinuz-5.15.0-1015-aws root=PARTUUID=5198cbc0-01 ro console=tty1 console=ttyS0 nvme_core.io_timeout=4294967295 panic=-1
+    Jul 25 17:39:01 ip-172-31-5-97 kernel: KERNEL supported cpus:
+    Jul 25 17:39:01 ip-172-31-5-97 kernel:   Intel GenuineIntel
+    Jul 25 17:39:01 ip-172-31-5-97 kernel:   AMD AuthenticAMD
+    Jul 25 17:39:01 ip-172-31-5-97 kernel:   Hygon HygonGenuine
+    Jul 25 17:39:01 ip-172-31-5-97 kernel:   Centaur CentaurHauls
+    Jul 25 17:39:01 ip-172-31-5-97 kernel:   zhaoxin   Shanghai
+
+
+journalctl --disk-usage
+
+
+see all errors
+journalctl -p 3 -xb
+    https://unix.stackexchange.com/questions/332886/how-to-see-error-message-in-journald
+
+journalctl
+https://github.com/minio/minio/issues/8302
+
+
+journalctl --since "2022-02-01"
+
+
+journalctl --since "2022-02-01"
+-- Logs begin at Wed 2021-10-20 22:45:54 UTC, end at Tue 2022-02-01 00:17:16 UTC. --
+Feb 01 00:00:01 ip-172-31-31-51 CRON[181570]: pam_unix(cron:session): session opened for user ubuntu by (uid=0)
+Feb 01 00:00:01 ip-172-31-31-51 CRON[181571]: (ubuntu) CMD (cd /home/ubuntu/etlbase/sc-etl-dev/ && nohup /home/ubuntu/miniconda3/envs/etl38/bin/python ./schedule_runner_hf.py &)
+Feb 01 00:00:01 ip-172-31-31-51 systemd[1]: Starting Rotate log files...
+Feb 01 00:00:01 ip-172-31-31-51 systemd[1]: Starting Daily man-db regeneration...
+Feb 01 00:00:01 ip-172-31-31-51 CRON[181570]: pam_unix(cron:session): session closed for user ubuntu
+Feb 01 00:00:01 ip-172-31-31-51 systemd[1]: logrotate.service: Succeeded.
+Feb 01 00:00:01 ip-172-31-31-51 systemd[1]: Finished Rotate log files.
+Feb 01 00:00:01 ip-172-31-31-51 systemd[1]: man-db.service: Succeeded.
+Feb 01 00:00:01 ip-172-31-31-51 systemd[1]: Finished Daily man-db regeneration.
+Feb 01 00:02:01 ip-172-31-31-51 CRON[181592]: pam_unix(cron:session): session opened for user ubuntu by (uid=0)
+Feb 01 00:02:01 ip-172-31-31-51 CRON[181594]: (ubuntu) CMD (cd /home/ubuntu/etlbase/sc-etl-prod/ && nohup /home/ubuntu/miniconda3/envs/etl38/bin/python ./schedule_runner.py &)
+Feb 01 00:02:01 ip-172-31-31-51 CRON[181593]: pam_unix(cron:session): session opened for user ubuntu by (uid=0)
+Feb 01 00:02:01 ip-172-31-31-51 CRON[181595]: (ubuntu) CMD (cd /home/ubuntu/etlbase/sc-etl-dev/ && nohup /home/ubuntu/miniconda3/envs/etl38/bin/python ./schedule_runner.py &)
+Feb 01 00:02:01 ip-172-31-31-51 CRON[181592]: pam_unix(cron:session): session closed for user ubuntu
+Feb 01 00:02:01 ip-172-31-31-51 CRON[181593]: pam_unix(cron:session): session closed for user ubuntu
+Feb 01 00:08:44 ip-172-31-31-51 sudo[181613]:     root : TTY=pts/0 ; PWD=/usr/local/bin ; USER=root ; COMMAND=/usr/bin/systemctl start minio.service
+Feb 01 00:08:44 ip-172-31-31-51 sudo[181613]: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Feb 01 00:08:44 ip-172-31-31-51 systemd[1]: Starting MinIO...
+Feb 01 00:08:44 ip-172-31-31-51 systemd[1]: Started MinIO.
+Feb 01 00:08:44 ip-172-31-31-51 systemd[181617]: minio.service: Failed to execute command: Exec format error
+Feb 01 00:08:44 ip-172-31-31-51 systemd[181617]: minio.service: Failed at step EXEC spawning /usr/local/bin/minio: Exec format error
+Feb 01 00:08:44 ip-172-31-31-51 sudo[181613]: pam_unix(sudo:session): session closed for user root
+Feb 01 00:08:44 ip-172-31-31-51 systemd[1]: minio.service: Main process exited, code=exited, status=203/EXEC
+
+
+journalctl --since "2022-02-01 00:24:41" --until "2022-02-02"
+
+journalctl --since "2022-02-01 00:24:41" --until "2022-02-02"
+-- Logs begin at Wed 2021-10-20 22:45:54 UTC, end at Tue 2022-02-01 00:17:16 UTC. --
+-- No entries --
+
+
+sudo systemctl start minio.service
+ubuntu@ip-172-31-31-51:~$ journalctl --since "2022-02-01 00:24:41" --until "2022-02-02"
+-- Logs begin at Wed 2021-10-20 22:45:54 UTC, end at Tue 2022-02-01 00:26:52 UTC. --
+Feb 01 00:26:51 ip-172-31-31-51 sudo[181815]:   ubuntu : TTY=pts/1 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/systemctl start minio.service
+Feb 01 00:26:51 ip-172-31-31-51 sudo[181815]: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Starting MinIO...
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Started MinIO.
+Feb 01 00:26:51 ip-172-31-31-51 sudo[181815]: pam_unix(sudo:session): session closed for user root
+Feb 01 00:26:51 ip-172-31-31-51 systemd[181819]: minio.service: Failed to execute command: Exec format error
+Feb 01 00:26:51 ip-172-31-31-51 systemd[181819]: minio.service: Failed at step EXEC spawning /usr/local/bin/minio: Exec format error
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Main process exited, code=exited, status=203/EXEC
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Failed with result 'exit-code'.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Scheduled restart job, restart counter is at 1.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Stopped MinIO.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Starting MinIO...
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Started MinIO.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[181824]: minio.service: Failed to execute command: Exec format error
+Feb 01 00:26:51 ip-172-31-31-51 systemd[181824]: minio.service: Failed at step EXEC spawning /usr/local/bin/minio: Exec format error
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Main process exited, code=exited, status=203/EXEC
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Failed with result 'exit-code'.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Scheduled restart job, restart counter is at 2.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Stopped MinIO.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Starting MinIO...
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Started MinIO.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[181828]: minio.service: Failed to execute command: Exec format error
+Feb 01 00:26:51 ip-172-31-31-51 systemd[181828]: minio.service: Failed at step EXEC spawning /usr/local/bin/minio: Exec format error
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Main process exited, code=exited, status=203/EXEC
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Failed with result 'exit-code'.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Scheduled restart job, restart counter is at 3.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Stopped MinIO.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Starting MinIO...
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: Started MinIO.
+Feb 01 00:26:51 ip-172-31-31-51 systemd[181831]: minio.service: Failed to execute command: Exec format error
+Feb 01 00:26:51 ip-172-31-31-51 systemd[181831]: minio.service: Failed at step EXEC spawning /usr/local/bin/minio: Exec format error
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Main process exited, code=exited, status=203/EXEC
+Feb 01 00:26:51 ip-172-31-31-51 systemd[1]: minio.service: Failed with result 'exit-code'.
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: minio.service: Scheduled restart job, restart counter is at 4.
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: Stopped MinIO.
+
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: Starting MinIO...
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: Started MinIO.
+Feb 01 00:26:52 ip-172-31-31-51 systemd[181834]: minio.service: Failed to execute command: Exec format error
+Feb 01 00:26:52 ip-172-31-31-51 systemd[181834]: minio.service: Failed at step EXEC spawning /usr/local/bin/minio: Exec format error
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: minio.service: Main process exited, code=exited, status=203/EXEC
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: minio.service: Failed with result 'exit-code'.
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: minio.service: Scheduled restart job, restart counter is at 5.
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: Stopped MinIO.
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: minio.service: Start request repeated too quickly.
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: minio.service: Failed with result 'exit-code'.
+Feb 01 00:26:52 ip-172-31-31-51 systemd[1]: Failed to start MinIO.
+
+
+Save to log:
+journalctl --since "2022-02-01 00:24:41" --until "2022-02-02" >> minio_error.log
+
+https://linuxhandbook.com/journalctl-command/
+
+https://www.golinuxcloud.com/view-logs-using-journalctl-filter-journald/
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+Collect all logs generated by nginx
+
+journalctl -f -u nginx
+    https://manpages.ubuntu.com/manpages/bionic/man1/journalctl.1.html
+
+    https://askubuntu.com/questions/864722/where-is-journalctl-data-stored
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+Journal Disk usage
+
+journalctl --disk-usage
+
+https://codepre.com/en/how-to-use-journalctl-to-read-linux-system-logs.html
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+journald
+rsyslog
+
+
+https://askubuntu.com/questions/925440/relationship-of-rsyslog-and-journald-on-ubuntu-16-04
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+journalctl -xe
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=22.04
+DISTRIB_CODENAME=jammy
+DISTRIB_DESCRIPTION="Ubuntu 22.04.1 LTS"
+
+
+
+https://www.binarytides.com/linux-command-to-check-distro/
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+https://howtoforge.com/linux-printenv-command/
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+telnet
+
+type telnet
+
+it will show 
+
+telnet>
+
+to quit:
+telnet>
+
+
+
+telnet github.com 80
+Trying 140.82.113.3...
+Connected to github.com.
+Escape character is '^]'.
+^]
+
+
+^C^X^XConnection closed by foreign host.
+
+https://superuser.com/questions/486496/how-do-i-exit-telnet
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+How to check ssh running?
+
+https://linuxhint.com/check-if-ssh-is-running-on-linux/
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+How to find the port number in flask app.py?
+
+cat app.py  | grep "PORT"
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+Files count
+
+Count of only JPEG files
+
+Count of only CR2 files
+
+
+ls -lR ./* | wc -l
+
+ls -lR ./*.CR2 | wc -l
+ls -lR ./*.JPG | wc -l
+
+
+
+
+https://www.man7.org/linux/man-pages/man1/ls.1.html
+
+Mac:
+https://almostpractical.com/number-files-folder-mac/
+
+------------------------------------------------------------------------------------
+
+
+Size of 
+
+find . -name "*.JPG" | xargs du -sch
+
+
+find . -name "*.JPG" -print0 | xargs -0 du -sch
+
+du -sc *.JPG | tail -n1
+10713424    total
+
+du -sch *.JPG | tail -n1
+5.1G    total
+
+du -sch *.CR2 | tail -n1
+
+https://www.ubuntupit.com/how-to-check-total-hard-disk-size-in-ubuntu-terminal/
+
+https://unix.stackexchange.com/questions/167084/how-to-show-only-total-file-size-of-particular-extension-by-du-command
+
+https://askubuntu.com/questions/817045/size-of-all-files-of-a-certain-extension-in-a-directory-tree
+------------------------------------------------------------------------------------
+
+
+show all shell commands
+
+https://unix.stackexchange.com/questions/140286/how-to-find-list-of-available-shells-by-command-line
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+https://askubuntu.com/questions/468901/how-to-show-only-hidden-files-in-terminal
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+Scenaio:
+I have multiple Nginx conf files under /etc/nginx/sites-enabled/
+Have to find which text file has the port number 5089?
+
+grep -rnw '/etc/nginx/sites-enabled/' -e '5089'
+
+result:
+/etc/nginx/sites-enabled/tact2021:362:        proxy_pass http://0.0.0.0:5089/;
+
+
+https://9to5linux.com/how-to-search-for-text-within-files-and-folders-in-linux
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------

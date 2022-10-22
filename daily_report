@@ -44,40 +44,139 @@ Statistics Application
 
 Learning Report - 3:
 
-Date: Oct 10, 2022 - Sunday
-Days left: 120
+Date: Oct 13, 2022 - Sunday
+Days left: 111
 By: Krithiga Shankar
 
-Test
+Route 53 & customized domain
+
+    created and launched route 53 with ec2  instance.
+    connected local with the instance.
+    Using nginx created domain
+    once domian is verified, linked the simple-flask application with the domain
+    Now domain displays the application result.
+
+    refer session-3 report for codes.
 
 
 --------------------------------------------------------------------------------------------
 
+Learning Report - 4:
 
+Date: Oct 14, 2022 - Friday
+Days left: 112 
+By: Krithiga Shankar
 
+Assigments
+Platforms similar to Linked in
+    https://www.thegotomarketcompany.com/blog/alternatives-to-linkedin
+    
+    about.me
+    indeed
+    betpage
+    angel list
+    Xing
+    Unicorn Nest
+    Instahyre
+    Stackoverflow careers2.0
+    JiTalent
+    Viadeo
+    Monster.com
+    CrunchBase
+
+Autoscaling videos 
+https://www.youtube.com/watch?v=4EOaAkY4pNE
 
 
 
 
 --------------------------------------------------------------------------------------------
 
+Learning Report - 5:
 
+Date: Oct 14, 2022 - Friday
+Days left: 112 
+By: Krithiga Shankar
+
+Auto Scaling:
+
+Pre - Requisits:
+Save .pem key in the local folder.
+while connecting to instance open terminal in the folder where pem key is stored.
+pip install -r requirements.txt 
+
+Create an instance:
+EC2 -> Launch Instances -> enter name of the instance -> select ubuntu OS -> select my IP instead of public IP -> create 
+
+Connecting to instance:
+click connect -> copy ssh -> open local terminal -> paste copied ssh & enter 
+
+Setup miniconda environment for the new instance:
+cd /tmp
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+exit out of the instance using ctrl+C
+
+Activate conda :
+conda activate py38
+
+cd to the required folder 
+
+
+
+ec2-> autoscaling group -> select any one group that is listed -> go to automatic scaling tab -> select scle up & scale down -> actions -> enable 
+
+Creating SQS queue:
+Amazon SQS -> create queues -> give name (user defined) -> encryption disable -> create queue
+
+Accessing SQS queue for tracking messages:
+
+Amazon SQS -> create queues -> select queues tab on the top -> view the messages increasing or decresing under "message available" available -> click refresh to view latest messages available in the queue. 
+
+Creating Alarm in CloudWatch:
+Pre-requisit - (needs 2 alarms - one for 'scale-up' & one for 'scale-down') & need to have scale up & down json script ready 
+CloudWatch -> choose 'all alarms' on the left -> create alarm -> select metric -> source -> paste scale up script in json format -> update -> 
 
 
 
 
 
 --------------------------------------------------------------------------------------------
+Learning Report - 6:
+
+Date: Oct 20, 2022 - Thursday
+Days left: 106 
+By: Krithiga Shankar
 
 
+Fundamental Programming
+Performed few tasks on groupby, pivot table, aggregation methods in python.
 
+References:
 
+groupby - https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.core.groupby.DataFrameGroupBy.aggregate.html
+        - https://www.statology.org/pandas-groupby-multiple-aggregations/
 
-
+pivot table - https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.pivot_table.html
 
 --------------------------------------------------------------------------------------------
 
+Learning Report - 7:
 
+Date: Oct 21, 2022 - Friday
+Days left: 105 
+By: Krithiga Shankar
+
+
+Multivariate
+Data selection and cleaning.
+Performd diagnostics for the selected dataset.
+Findig correlation, linearity relation with the response variable and explanatory vairables.
+Build a simple linear regression with one explanatory variable, another model with multiple predictors, one more model with all predictors. 
+Compare all the three model to understand which would be better and explain about Rsquared value, RMSE & etc, 
+
+Reference - refered previous class lectures PDF. 
 
 
 

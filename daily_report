@@ -44,7 +44,7 @@ Statistics Application
 
 Learning Report - 3:
 
-Date: Oct 13, 2022 - Sunday
+Date: Oct 13, 2022 - Thursday
 Days left: 111
 By: Krithiga Shankar
 
@@ -118,13 +118,37 @@ chmod +x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh
 exit out of the instance using ctrl+C
 
+conda create -n py38 -y python=3.8
+
 Activate conda :
 conda activate py38
 
 cd to the required folder 
+------
+In AWS 
+Creating AMI, launching templates/ launch configuration.
 
+creating AMI : select our instance -> actions -> create image -> name -> add tag -> tactyear : 2022 -> create image
+in left tab -> search for AMI-> select your ami -> check the status till it becomes available 
 
+For launching template : select our instance -> actions-> image template-> create template from instance-> name -> select my ami which is available frm previous step -> owned by me -> select ur ami from the drop down -> manually select inst type -> select t2 micro free tier -> give your key pair -> subnet select any subnet -> security group : select the one u already have -> give tags like below
+tactyear : 2022
+env : 
+Name  : developer / auto scale tester 
 
+After the above click onto "create launch template"
+
+creating auto scaling group :  ec2 -> autoscalin group -> give name -> select your launch template form the drop down -> select version as latest (if u have many version u can choose whatever u require) -> next-> availability zones & subnet give anything and can select 2 as well -> next -> additional settings -> check the enable group metrics -> next 
+
+group size - it is for mentioning how many instances requires for the scale up and down
+group size -> keep 0 for minimum and maximum be 3 and desired capacity 0 (desired capacity is like defaultso value should be between min and maximum)
+
+AMI Versioning.
+pip show python-dotenv
+
+enable group sclae in cloudwatch-> next 
+--------
+Once AMI, template and Autoscaling groups are cretaed follow the below
 ec2-> autoscaling group -> select any one group that is listed -> go to automatic scaling tab -> select scle up & scale down -> actions -> enable 
 
 Creating SQS queue:
@@ -183,32 +207,20 @@ Reference - refered previous class lectures PDF.
 
 
 --------------------------------------------------------------------------------------------
+Learning Report - 8:
 
+Date: Oct 23, 2022 - Friday
+Days left: 103 
+By: Krithiga Shankar
 
+sage maker setup 
+aws -> search for sagemaker studio-> create -> give name -> select studio ->  will tae some time for the domain to get ready-> configure app -> launch app 
 
+Before this do prerequisits
 
-
-
-
---------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
---------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
---------------------------------------------------------------------------------------------
-
-
+aws-> services-> developer tools -> cloud 9 -> create envi-> name -> next -> ubuntu-> next-
+run this to get aws sts get-caller-identity
+reference : https://sagemaker-workshop.com/prerequisites/prerequisites.html
 
 
 
@@ -216,19 +228,138 @@ Reference - refered previous class lectures PDF.
 
 --------------------------------------------------------------------------------------------
 
+import pandas as pd
 
+import io
+
+bucket='krithi-sagemaker-experiment-2'
+
+file_key = 'sagemaker-trial-2/titanic.csv'
+
+s3_client = boto3.client('s3')
+
+obj = s3_client.get_object(Bucket=bucket, Key=file_key)
+
+df = pd.read_csv(io.BytesIO(obj['Body'].read()))
+df.head()
 
 
 
 
 
 --------------------------------------------------------------------------------------------
+Learning Report - 9:
+
+Date: Oct 29, 2022 - Saturday
+Days left: 97 
+By: Krithiga Shankar
+
+AWS step functions
+how to access the json key and values using states language -> https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html#map-state-example-params
+
+
+build ml model in step functions or deploy it in step function. 
+what kind data ? titanic data is it fine 
+
+
+----------------------------------------------------------------------------------
 
 
 
+--------------------------------------------------------------------------------------------
+Learning Report - 9:
+
+Date: Nov 9, 2022 - Wednesday
+Days left: 86 
+By: Krithiga Shankar
+
+MongoDB setup and how to access data from it
+google mongo db -> try free-> crete an acocunt and loginto it 
+create project -> create DB (free) -> keep the defult -> give cluster name -> next ->create your own username & password -> create user
+add current IP -> finish
+db dashboard comes up -> click on the connect option copy the mongodb url and paste it in our our code env file. (to establish connection to mongodb form our code ) -> edit the URI with your db username, password and URI
+
+click on Database -> create-> give db name & collection name -> upload the data as csv -> select datatype for every variable -> create
+got to local terminal -> activate conda , requirements and run the python main file. click on the link u ll be fetching data from 
 
 
 
+--------------------------------------------------------------------------------------------
+
+Learning Report - 9:
+
+Date: Nov 24, 2022 - Thursday
+Days left: 69 
+By: Krithiga Shankar
+
+How to delete a sagemaker domain 
+
+->Open the SageMaker console. 
+
+->Choose Control Panel on the left side of the page.
+
+->Repeat the following steps for each user in the User name list.
+
+->Choose the user.
+
+->On the User Details page, for each non-failed app in the Apps list, choose Action.
+
+->From the dropdown list, choose Delete.
+
+->On the Delete app dialog, choose Yes, delete app, type delete in the confirmation field, and then choose Delete.
+
+->When the Status for all apps show as Deleted, choose Edit.
+
+->From the Edit User page, choose Delete user.
+
+->On the Delete user dialog, choose Yes, delete user, type delete in the confirmation field, and then choose Delete.
+
+->When all users are deleted, choose the domain settings icon (  ).
+
+->From the General settings page, choose Delete Domain.
+
+->On the Delete Domain dialog, choose Yes, delete Domain, type delete in the confirmation field, and then choose Delete.
+
+delete a sagemaker domain from cli 
+
+Retrieve the list of domains in your account.
+
+
+aws --region Region sagemaker list-domains
+Retrieve the list of applications for the domain to be deleted.
+
+
+aws --region Region sagemaker list-apps \
+    --domain-id-equals DomainId
+Delete each application in the list.
+
+
+aws --region Region sagemaker delete-app \
+    --domain-id DomainId \
+    --app-name AppName \
+    --app-type AppType \
+    --user-profile-name UserProfileName
+Retrieve the list of user profiles in the domain.
+
+
+aws --region Region sagemaker list-user-profiles \
+    --domain-id-equals DomainId
+Delete each user profile in the list.
+
+
+aws --region Region sagemaker delete-user-profile \
+    --domain-id DomainId \
+    --user-profile-name UserProfileName
+Delete the domain. To also delete the Amazon EFS volume, specify HomeEfsFileSystem=Delete.
+
+
+aws --region Region sagemaker delete-domain \
+    --domain-id DomainId \
+    --retention-policy HomeEfsFileSystem=Retain
+
+
+    
+reference - https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-delete-domain.html
 
 --------------------------------------------------------------------------------------------
 

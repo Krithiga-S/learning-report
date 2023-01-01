@@ -1,0 +1,614 @@
+Session 1 
+
+11th Oct 2022
+Deploy model in the AWS ec2 instance
+1. Created ec2 instance 
+	aws login -> ec2-> launch instance -> give instance name -> select AMI : Ubuntu 20.4 free tier eligible -> key pair: choose from the listed or create a  new keypair  -> security group: create security group -> check allow ssh Traffic from -> select anywhere -> click launch 
+	once created go to the instnace -> 
+2. Connected instance to local
+	Pre-requirements
+		> get .pem key and save it in a folder 
+		> go to the creds folder before connectig the instance
+
+	Steps for instance connection
+		> got to aws instance -> ec2 -> choose your instance -> connect -> copy ssh key 
+		> inside pem key folder execute 'ssh -i "toronto-key.pem" ubuntu@ec2-3-142-237-41.us-east-2.compute.amazonaws.com' -  (dynmaic)
+	
+	setup SSH :		
+
+			> In the instance cli run the below set of commands 
+
+			### generating ssh key
+			> ssh-keygen -t rsa -b 4096 -C "email@gmail.com"
+			> eval "$(ssh-agent -s)"
+			> ssh-add ~/.ssh/id_rsa
+			> cat ~/.ssh/id_rsa.pub
+
+			### copy the SSH and save it in the required git account 
+			> copy generated SSH from aws instance
+			> go to github -> my account-> setting -> SSH & GPG -> New SSH Key
+			> enter name -> paste the generated SSH and save 
+
+
+			
+
+3. cloned simple flask program from git to local and executed them in aws 
+4. go to aws instance->security group -> edit -> add rule -> custom -> give the app's port number -> select anywhere -> ipv4 -> after this access the app link 
+4. Basic overview in git clone, add, commit, push.
+
+-------------------------------------------------------------------------------------------------------------
+connect with instance 
+
+setup SSH :
+
+	ssh-keygen -t rsa -b 4096 -C "email@gmail.com"
+
+	eval "$(ssh-agent -s)"
+
+	ssh-add ~/.ssh/id_rsa
+
+	cat ~/.ssh/id_rsa.pub
+	then copy the file on Github/Gitlab
+
+
+cd /tmp
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+
+type exit in terminal to come out of the instance and then again connect to instance and execute the below code 
+
+conda config --set auto_activate_base false
+
+### creating conda environment
+conda create -n py38 -y python=3.8
+
+### To activate conda:
+conda activate py38
+
+### go to the required code folder then type the below 
+
+
+### pre requists installation
+pip install -r requirements.txt
+#################################################################
+mkdir software 
+
+wget http://bmp.lightbody.net/
+wget https://github.com/lightbody/browsermob-proxy/releases/download/browsermob-proxy-2.1.4/browsermob-proxy-2.1.4-bin.zip
+
+cd .. ## getting oout of the s/w folder 
+
+sudo apt install unzip
+
+get 
+sudo nano .env  ### open nano console 
+
+.env is created in nano to save the creds securely
+
+crontab -e 
+
+select nano editor -> paste wthout quotes '* * * * * /home/ubuntu/miniconda3/bin/python /home/ubuntu/tact/t-scraper/tact_scanner_sqs.py'
+
+/home/ubuntu/tact/software
+
+
+
+sudo apt update
+sudo apt install default-jre
+
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub |sudo apt-key add - \
+>     && sudo echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> sudo /etc/apt/sources.list.d/google.list
+
+sudo apt-get update && sudo apt-get -y install google-chrome-stable
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+
+
+"https://en.wikipedia.org/wiki/Human:_Fall_Flat",
+        "https://en.wikipedia.org/wiki/Duck_Hunt",
+        "https://en.wikipedia.org/wiki/Diablo_III:_Reaper_of_Souls",
+        "https://en.wikipedia.org/wiki/New_Super_Mario_Bros."
+
+
+------------------------------------------------------------------------------------------------------------
+Session 2
+
+12th Oct 2022 
+
+Auto Scaling:
+1. Creating AMI, launching templates/ launch configuration.
+2. Creating autoscaling group.
+	/volume1/Tact/Tact_videos/Courses/AWS/Asg Autoscaling - Sudhir - Tamizh - Sep 25, 2022.mp4
+
+3. Before adding dynamic policy, needed to create cloudwatch alarm.
+4. need to setup the script for cloudwatch alarm - script not available 
+
+learning:
+
+	used for storage - objects, files, metadata.
+	can upload object - objects can be opened, downloaded, moved.
+	above actions can be done using s3 API or amazon s2 console 
+	accessng objects in a bucket - using the URL https://DOC-EXAMPLE-BUCKET.s3.us-west-2.amazonaws.com/photos/puppy.jpg.
+	recommended to use account as IAM  (Identity & access management) user instead of root 
+
+
+	Naming conventions in S3
+
+	Names - unique across account, region - until deleted
+
+Docker Setup: 
+1. setu SSH in the local
+1. Dowloaded, installed docker.
+
+------------------------------------------------------------------------------------------------------------
+Session 3
+13th Oct 2022
+Route 53 
+
+sudo apt-get update
+sudo apt-get install nginx
+
+udo service nginx status 
+sudo service nginx stop
+sudo service nginx start
+sudo service nginx restart
+
+
+# Github Turtlescore - Featurepreneur
+server {
+    listen 80;
+
+    server_name abc.tactlabsapp.com www.abc.tactlabsapp.com;
+
+    index index.php index.html index.htm;
+
+    location / {
+        proxy_pass http://0.0.0.0:3011/;
+    }
+
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+}
+
+IP - 18.188.232.108 
+
+curl http:/0.0.0.0
+
+domain name - abc.tactlabsapp.com
+
+sudo nano /etc/nginx/sites-enabled/krithinginx
+
+
+------------------------------------------------------------------------------------------------------------
+
+/home/ubuntu/miniconda3/envs/py38/bin/python /home/ubuntu/tact/t-scraper/tact_scanner_sqs.py
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+oct 16 12:08 am 
+
+https://featurepreneur.com/
+
+fargate course 
+
+https://featurepreneur.com/course/ttc/28
+
+------------------------------------------------------------------------------------------------------------
+Oct 17 9:30 am
+
+name, github , linkedin - excel sheet with students list 
+raja@tactii.com
+info@tactii.com
+
+
+csehod@jec.ac.in
+
+
+------------------------------------------------------------------------------------------------------------
+Session 4
+
+22nd Oct 2022
+
+AWS CDK setup and usage:
+
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+sudo installer -pkg AWSCLIV2.pkg -target /
+
+sudo chown -R $(whoami) /usr/local/etc/bash_completion.d /usr/local/share/doc /usr/local/share/zsh /usr/local/share/zsh/site-functions
+
+conda env list
+
+conda activate py38
+
+code . 
+
+python -m pip install aws-cdk-lib
+
+
+git clone 
+git status 
+git add .
+git commit -m "message"
+git push 
+
+------------------------------------------------------------------------------------------------------------
+
+Session 5
+
+23rd Oct 2022
+
+Deleting a cluster, deleting a service, tasks and etc.
+connecting to aws 
+> aws configure
+
+give the login password for running a code via docker.
+> aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/p3x8b2t3
+
+Listing clusters, services, containers & tasks along with deleting or stoping any one of those:
+
+tres important - create, list &  delete cluster, services, containers, tasks & etc :- https://docs.aws.amazon.com/cli/latest/reference/ecs/index.html
+
+to check number of clusters available - https://docs.aws.amazon.com/cli/latest/reference/emr/list-clusters.html
+aws ecs list-clusters
+
+my cluster name - 'arn:aws:ecs:us-east-1:605032034866:cluster/reverser-fargate'
+
+to check number of services under a particular cluster - https://docs.aws.amazon.com/cli/latest/reference/ecs/list-services.html
+aws ecs list-services --cluster reverser-fargate
+
+service name - 'arn:aws:ecs:us-east-1:605032034866:service/reverser-fargate/reverser-fargate-service'
+
+to check the number of tasks under a service 
+aws ecs list-services --service-name reverser-fargate-service
+
+
+to delete a service
+aws ecs delete-service --cluster reverser-fargate --service reverser-fargate-service --force
+
+to delete a cluster
+aws ecs delete-cluster --cluster reverser-fargate
+
+to stop a particular service under a cluster
+aws ec2 describe-security-groups --filters Name=ip-permission.group-id,Values=[sg-xxxxxxxxx] --region us-east-1 | jq '.SecurityGroups[] .GroupId'
+
+
+------------------------------------------------------------------------------------------------------------
+
+Session 6
+
+23rd Oct 2022
+
+https://ca.indeed.com/viewjob?jk=522397ca406069e9&tk=1gg3caroejg9h800&from=serp&vjs=3
+
+sagemaker setup and ran basic python commands
+
+applied for jobs 
+https://ca.indeed.com/viewjob?jk=6905202efa83d0fa&tk=1gg3caroejg9h800&from=serp&vjs=3
+https://jobs.lever.co/klick/ac47caad-84f8-46ce-98f6-c54290c8524c/thanks
+https://ca.indeed.com/viewjob?jk=522397ca406069e9&tk=1gg3caroejg9h800&from=serp&vjs=3&applied=1
+
+------------------------------------------------------------------------------------------------------------
+Session 7
+
+28th Oct 2022
+
+Kubernetes - model deployment in aws 
+
+create aws instance 
+
+Steps to follow in your local machine 
+guide link - https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/
+
+to setup kubernetes follow the setup as mentioned in the link.
+
+to add plugins use 
+code .~/.zshrc --> it ll  open .zshrc window 
+-> paste this below code in the place of already existing plugins
+plugins=(git
+    docker
+    docker-compose
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    vscode
+    python
+    themes
+    kubectl
+    history
+    emoji
+)
+
+
+-> once the above command is done run 'source .~/.zshrc' -> it will throw error asking for auto suggestions and syntact highlight packages
+-> then go to root using cd ../../  -> cd ~/.oh-my-zsh/plugins (this wil go into logins folder) -> then clone these files https://github.com/zsh-users/zsh-autosuggestions & https://github.com/zsh-users/zsh-syntax-highlighting into the plugins folder 
+-> afterputting the requirement inthe plugins folder then run 'source .~/.zshrc' 
+
+
+Prerequisites
+run 'aws configure' -> give access key, security key , region, json.
+Creating or updating a kubeconfig file for an Amazon EKS cluster - do the steps in this article
+https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
+
+
+https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengaddingserviceaccttoken.htm
+
+
+aws eks update-kubeconfig --region us-east-2 --name tact-test-cluster 
+
+
+
+
+brew install aws-iam-authenticator
+
+tactlabs-> housilon-ml-> clean_repo branch-> fourteen_input_model_make.py 
+run fourteen it ll create pkl file after that run flask app file it will have api where you can 
+
+
+
+
+ml api , 
+api - cache the result.
+
+
+------------------------------------------------------------------------
+sythetic data images
+
+used to train image datasets. 
+here they do image augmentation, even after image augmentation it wont be enough so they go for creating synthetic images. 
+yolo model - detect objects by putting a bounding boxes on the image objects. -> why use yolo is because 
+
+grabcut algorithm is a static algorithm so iorder to train model dynamically they went for neural nets like rcnn , mask etc 
+
+
+cut the images or cleaned the image using yolo and feed this cleaned data to grabcut algo even though it was a static lagorithm. 
+
+generative adversirial network - GAN -> used tocreate syntetic data by using pixel by pixel -> two part 
+generator and dicriminator
+data for GAN would be 
+
+data collection should be on cereal boxes 
+look for gan videos on 
+
+docker swarm - docker vs docker compose
+why did docker swarm failed ?
+nginx
+
+dvc remote add -d storage s3://dvc-tria-1/dvc-folder-1
+
+
+dvc add data/data.csv 
+git commit data/data.csv.dvc -m "Add version1"
+dvc push 
+
+
+
+
+tactyear : 2022
+env : 
+developer : name 
+
+
+
+write an article on upload and download files into sharepoint using shareplum.
+
+------------------------------------------------------------------------------------------------------------
+Session 7
+
+16th Nov 2022
+
+AWS ECS Fargate microservces - referred the featurepreneur courses 
+
+
+
+------------------------------------------------------------------------------------------------------------
+aws imagebuilder create-image-pipeline --cli-input-json file://ami-builder.json
+
+
+
+
+aws imagebuilder create-infrastructure-configuration --cli-input-json file://ami-infrastructure
+
+
+
+aws imagebuilder create-infrastructure-configuration --cli-input-json file://create-infrastructure-configuration.json
+
+ aws iam create-instance-profile --instance-profile-name t-scraper-instance-profile
+
+
+
+
+arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+
+"infrastructureConfigurationArn": "arn:aws:imagebuilder:us-east-2:605032034866:infrastructure-configuration/ami-infrastructure-configuration.json",
+    
+arn:aws:iam::605032034866:user/krithiga
+
+arn:aws:s3:::t-scraper-logs
+
+aws imagebuilder create-distribution-configuration --cli-input-json file://ami-distribution-configuration.json
+
+aws imagebuilder list-distribution-configurations
+
+arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-2-arm64/x.x.x
+
+
+next steps 
+create a component for image recipe json file 
+after that run the immage recipe -> put the image recipe in the ami-builder-pipeline json file 
+the execute the ami buider pipeline 
+
+
+------------------------------------------------------------------------------------------------------------
+November 25th 2022
+
+Agenda today
+
+download tact-python from git 
+
+need to load s3 with image files and 
+inside lambda need to check how many images and coming in at s3 and once this the number of images hits a threshold then trigger classification model to classify the indoor as one floag and outdoor image as anther flag and upload it into s3 again. 
+
+classification optimization on accuracy improvement - to gopi by vijitha.
+
+
+
+Housing images - 10000 images collection
+login into zolo.ca collect images of 2 houses. 
+
+self analysis score on the list of blogs.
+
+tscrapper-auto scaling course --> see the course on featurepreneur. 
+
+
+
+KT from baghya - posgres KT- she is available on sunday 
+
+create upwork for krithiga.
+------------------------------------------------------------------------------------------------------------
+November 26th 2022
+
+Triggering lambda function from s3 
+
+------------------------------------------------------------------------------------------------------------
+November 27th 2022
+KT on Posgres by baghiya 
+
+
+upload 5 xml files -> upload it to s3 -> for every 5 xml files call lambda -> external api -> 	convert the external api into microservice using fargate --> talk to veda 
+------------------------------------------------------------------------------------------------------------
+Article Recommender.
+requirements.text for article recommender 
+
+pandas 
+numpy
+scikit-learn
+flask
+flask_restful
+scipy
+nltk
+matplotlib
+sqlalchemy
+timestamp,eventType,contentId,authorPersonId,authorSessionId,authorUserAgent,authorRegion,authorCountry,contentType,url,title,text,lang
+
+1488300750,CONTENT SHARED,6607431762270322350,-1393866732742189886,2367029511384577082,,,,HTML,https://medium.com/analytics-vidhya/types-of-regularization-and-when-to-use-them-f0350ca651a7, "Types of regularization and when to use them.","This article will explain 3 types of regularizations and where and how to use them using Scikit-Learn.Why use regularization?First we need to understand why we should regularization. Regularization is mainly used so that a model does not overfit the data. Polynomial models are the most common ones in which regularization can be useful as it may have higher degree features which can cause the model to overfit, what regularization does is reduces the number of polynomial degrees which makes the model not overfit the data.Now the advantage of using regularization over the other methods such as reducing the number of features in the training data is that when removing the features we loose the valuable information while training. This is why regularization is better as it reduces the effect of the hypothesis parameters (θ).Here I will be explaining 3 methods of regularization. This is the dummy data that we will be working on. As we can see its pretty scattered and a polynomial model would be best for this data.",en
+
+
+
+
+1488307860,CONTENT SHARED,4109618890343020060,3891637997717104548,-7416795577834806518,,,,HTML,https://medium.com/mlearning-ai/regularization-what-why-and-how-part-1-ef6bdb6bafea,"Regularization : What? Why? and How? (Part -1)","What would have been your approach towards regularization if you were the person who actually came up with it? Are you unable to connect different concepts which we generally see while learning about Regularization? Maybe due to the isolative way we learn about this or the lack of general tools you need to crack this up. If you are a discoverer by heart, and love to read, glide through this article/story and see your dots connect.
+The article is broken into two parts, in first part we will focus on pre-requisites and intuition for building regularization as a tool and in second part we will learn about regularization as a machine learning topic.Every story has a monologue, then why not here? So, lets start,Since the advent of Machine learning, specifically Deep learning as a problem solving field, a lot of time went into finding optimal way to solve problems. But most of research works which tried solving a problem using Deep neural nets as a single function failed; mostly because they were trying to do something called as unconstrained optimization(don’t worry we will talk about this term later).Only after inclusion of regularization and few other techniques quick advancements began to happen. But why were we failing in general and how did regularization fixed some issues?Lets understand this by first understanding overfitting.The dataset which we assume to be significant enough to train our model, is a discretized subset of true continuous population distribution.",en
+
+------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------
+Dec 16th 2022 - Friday 
+
+### Research paper brainstorming
+
+Deadline - Feb 20 2023
+
+Target area 
+--> synthetic images 
+--> Text analysis 
+--> bayesian  -> console.aws.amazon.com/console/home#
+--> MDP - Markov decision process ->https://www.ll.mit.edu/sites/default/files/publication/doc/2018-12/Asmar_2013_ATC-408_WW-26778.pdf
+--> time series using Kats -> https://analyticsindiamag.com/a-guide-to-kats-python-tool-by-meta-for-effective-time-series-analysis/
+
+------------------------------------------------------------------------------------------------------------
+Dec 17th 2022 - Saturday
+
+1. numpy
+2. Kats
+3. Pandas
+4. Scikit Learn 
+5. tensorflow 
+6. matplotlib
+7. pytorch
+8. seaborn
+9. word2vec
+10. fuzzywuzzy
+11. ensemble
+12. nltk
+13. spacy
+14. imagemagic
+15. scipy
+16. OpenCV
+
+
+------------------------------------------------------------------------------------------------------------
+Dec 19th 2022 - Monday
+
+List of time series model :
+
+1. Linear
+2. Quadratic
+3. ARIMA --> except this 
+4.SARIMA
+5.Holt-Winters
+6.Prophet
+7.AR-Net
+8.LSTM
+9.Theta
+10.VAR
+
+After ARIMA model which is the next best model to choose from the above ? and why ?
+I choose Prophet model 
+
+finish Time sheet 
+
+1. Data preparation operations used in time series model ? 
+
+--> Parsing time series information from various sources and formats.
+--> Generating sequences of fixed-frequency dates and time spans.
+--> Manipulating and converting date times with time zone information.
+--> Resampling or converting a time series to a particular frequency.
+--> Performing date and time arithmetic with absolute or relative time increments.
+
+2. Real time applications where time series model is applied ? 
+->Financial data on stock market , astrologers predicting when  medical field devices llike ECG & ect. 
+
+3. How the Inter Quartile Range is used in Time series data and does it differ from the approach on how we use IQR for other models ?
+
+4. what is Moving Average process in Time series ?
+
+5. different methods for Noise removal in time series data ? -> using frequencies for the data and using plots we ll be able to identify the noise and then remove it. 
+
+6. Stationary Vs Non - stationary ?
+--> Stationarity can be defined in precise mathematical terms, but for our purpose we mean a flat looking series, without trend, constant variance over time, a constant autocorrelation structure over time and no periodic fluctuations (seasonality).
+
+--> In contrast to the non-stationary process that has a variable variance and a mean that does not remain near, or returns to a long-run mean over time, the stationary process reverts around a constant long-term mean and has a constant variance independent of time.
+
+7. based on what do u choose a model 
+
+Every week interview each other and every other week official interviewing by Raja & Gopi
+
+
+
+------------------------------------------------------------------------------------------------------------
+Dec 22nd 2022 - Thursday
+
+Brainstorming on Theta model and Prophet model 
+
+Arima:
+		-> 2014 Introduced 
+		-> uses correlation b/w past and present values 
+		-> It does not take data with a trend or seasonality 
+		-> even if seasonality exists, ARIMA transforms the data to a normalised one
+		-> Prefers constant mean and variance 
+		-> 
+prophet:
+		-> 2019 Introduced
+		-> doesnt bother about the correlation because it takes all the variables / components of the data. 
+		-> trend , seasonality, holdiays can be taken into account. 
+		-> handling the outlier 
+
+
+

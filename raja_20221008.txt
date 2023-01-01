@@ -1,0 +1,264 @@
+--------------------------------------------------
+Day # 01 - Oct 08, 2022 - Saturday
+------------------------------------------
+
+
+
+ssh-keygen -t rsa -b 4096 -C "tactmac4@gmail.com"
+
+eval "$(ssh-agent -s)"
+
+ssh-add ~/.ssh/id_rsa
+
+pbcopy < ~/.ssh/id_rsa.pub
+
+
+
+How to install brew?
+xcode-select --install
+
+High Sierra, Sierra, El Capitan:
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+Catalina, Mojave, or Big Sur:
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+
+How to install iterm2 on Mac?
+brew install --cask iterm2
+
+
+Macian Checklist
+
+How to install Zsh?
+
+
+cat ~/.zshrc
+cat: /Users/tactlabsmac4/.zshrc: No such file or directory
+
+
+Brew install vscode?
+brew install --cask visual-studio-code
+https://dev.to/ilumin/install-vscode-on-osx-via-brew-278g
+
+
+Learn and win a MacBook:
+Applicable for Canadians and Indians
+
+
+git config --global --edit
+git commit --amend --reset-author
+
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    https://osxdaily.com/2021/11/15/how-install-oh-my-zsh-mac/
+
+
+
+----------------
+How to apply agnoster theme on Mac?
+
+verify zshrc
+cat ~/.zshrc
+
+# Have a backup:
+cp ~/.zshrc ~/.zshrc.orig
+
+# Install Zshrc
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Install the necessary fonts
+git clone https://github.com/powerline/fonts
+cd fonts && ./install.sh
+
+
+----------------/
+
+
+
+----------------
+powerlevel10k
+
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+    https://medium.com/featurepreneur/how-to-beautify-your-terminal-with-powerlevel10k-87cffcfdcfb4
+
+----------------/
+
+
+----------------
+brew install --cask miniconda
+
+conda create -n py38 -y python=3.8
+
+conda init zsh
+
+conda env list
+
+conda activate py38
+----------------/
+
+
+
+
+----------------
+Code Extensions:
+
+Live Server
+----------------/
+
+
+----------------
+
+Chrome Extension:
+
+
+
+Learning Analytics
+    https://chrome.google.com/webstore/detail/learning-analytics/jghnmnbocllgpppgnafiipnjcanfgcdm
+
+JSONview
+    https://chrome.google.com/webstore/detail/jsonview/gmegofmjomhknnokphhckolhcffdaihd
+
+
+Check IP
+    https://chrome.google.com/webstore/detail/check-ip/obcihajiaphehdfilcjnhaebjdpnppnc
+
+Foxclocks
+    https://chrome.google.com/webstore/detail/foxclocks/obcbigljfpgappaaofailjjoabiikckk
+
+----------------/
+
+
+
+Install Jupyterlab
+pip install jupyterlab
+
+
+https://www.speedtest.net/result/13174557045
+
+
+Install docker
+brew install --cask docker
+docker --version
+
+
+https://www.postman.com/
+
+brew install --cask db-browser-for-sqlite
+    https://sqlitebrowser.org/dl/
+
+
+Install Zoom
+https://zoom.us/download#client_4meeting
+
+https://chrome.google.com/webstore/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl
+
+https://chrome.google.com/webstore/detail/screen-recorder/hniebljpgcogalllopnjokppmgbhaden
+
+https://chrome.google.com/webstore/detail/imtranslator-translator-d/noaijdpnepcgjemiklgfkcfbkokogabh
+
+https://chrome.google.com/webstore/detail/grammarly-grammar-checker/kbfnbcaeplbcioakkpcpgfkobkghlhen
+
+
+brew install --cask tableplus
+
+
+brew install --cask pgadmin4
+
+
+
+Unable to write file '/Users/tactlabsmac4/tact/tactlabs4mac-logs/a.txt' (NoPermissions (FileSystemError): Error: EACCES: permission denied, open '/Users/tactlabsmac4/tact/tactlabs4mac-logs/a.txt')
+
+sudo chown -R <user-name> <directory-name>
+
+sudo chmod -R 777 /Users/tactlabsmac4/tact
+
+
+https://stackoverflow.com/questions/38980338/eacces-permission-denied-in-vs-code-mac
+
+
+
+source ~/.zshrc
+[oh-my-zsh] Insecure completion-dependent directories detected:
+drwxr-xr-x  3 501  admin  96  8 Oct 19:47 /usr/local/share/zsh
+drwxr-xr-x  3 501  admin  96  8 Oct 19:56 /usr/local/share/zsh/site-functions
+lrwxr-xr-x  1 501  admin  39  8 Oct 19:56 /usr/local/share/zsh/site-functions/_brew -> ../../../Homebrew/completions/zsh/_brew
+
+[oh-my-zsh] For safety, we will not load completions from these directories until
+[oh-my-zsh] you fix their permissions and ownership and restart zsh.
+[oh-my-zsh] See the above list for directories with group or other writability.
+
+[oh-my-zsh] To fix your permissions you can do so by disabling
+[oh-my-zsh] the write permission of "group" and "others" and making sure that the
+[oh-my-zsh] owner of these directories is either root or your current user.
+[oh-my-zsh] The following command may help:
+[oh-my-zsh]     compaudit | xargs chmod g-w,o-w
+
+[oh-my-zsh] If the above didn't help or you want to skip the verification of
+[oh-my-zsh] insecure directories you can set the variable ZSH_DISABLE_COMPFIX to
+[oh-my-zsh] "true" before oh-my-zsh is sourced in your zshrc file.
+
+
+https://osxdaily.com/2021/12/29/fix-oh-my-zsh-insecure-completion-dependent-directories-detected/
+
+
+
+brew install --cask miniconda
+Error: /usr/local/Homebrew is not writable. You should change the
+ownership and permissions of /usr/local/Homebrew back to your
+user account:
+  sudo chown -R $(whoami) /usr/local/Homebrew
+==> Caveats
+Please run the following to setup your shell:
+  conda init "$(basename "${SHELL}")"
+
+Error: Download failed on Cask 'miniconda' with message: No such file or directory @ dir_s_rmdir - /usr/local/var/homebrew/locks/3de49d8d2e54cdc2c8bf01674975199009b74db07ffc1def176baf6381fa028b--Miniconda3-py39_4.12.0-MacOSX-x86_64.sh.incomplete.lock
+
+
+
+brew install --cask docker
+==> Downloading https://desktop.docker.com/mac/main/amd64/85629/Docker.dmg
+######################################################################## 100.0%
+==> Installing Cask docker
+==> Moving App 'Docker.app' to '/Applications/Docker.app'
+==> Linking Binary 'docker-compose.bash-completion' to '/usr/local/etc/bash_completion.d/docker-compose'
+==> Backing App 'Docker.app' up to '/usr/local/Caskroom/docker/4.12.0,85629/Docker.app'
+==> Removing App '/Applications/Docker.app'
+==> Purging files for version 4.12.0,85629 of Cask docker
+Error: Failure while executing; `/bin/ln -h -f -s -- /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose` exited with 1.
+
+ln: /usr/local/etc/bash_completion.d/docker-compose: Permission denied
+
+
+
+
+
+----
+brew install --cask docker
+==> Downloading https://desktop.docker.com/mac/main/amd64/85629/Docker.dmg
+Already downloaded: /Users/tactlabsmac4/Library/Caches/Homebrew/downloads/2a36291b97622a9382b04043dfc463b021aa70a43949f7c91e4b70ff8341d5a1--Docker.dmg
+==> Installing Cask docker
+==> Moving App 'Docker.app' to '/Applications/Docker.app'
+==> Linking Binary 'docker-compose.bash-completion' to '/usr/local/etc/bash_completion.d/docker-compose'
+ln: /usr/local/etc/bash_completion.d/docker-compose: Permission denied
+==> Backing App 'Docker.app' up to '/usr/local/Caskroom/docker/4.12.0,85629/Docker.app'
+==> Removing App '/Applications/Docker.app'
+==> Purging files for version 4.12.0,85629 of Cask docker
+Error: Failure while executing; `/bin/ln -h -f -s -- /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose` exited with 1. Here's the output:
+ln: /usr/local/etc/bash_completion.d/docker-compose: Permission denied
+----/
+
+
+
+https://www.macworld.com/article/674829/how-to-delete-other-storage-on-a-mac.html
+
+
+--------------------------------------------------
+Day # 02 - Oct 09, 2022 - Sunday
+------------------------------------------
+
+https://dokan.ca/products/dell-xps-15-9500-4-13-5-intel-i5-10300h-16gb-1tb-laptop
+
+

@@ -1,0 +1,402 @@
+ScaleUp
+{
+    "metrics": [
+        [ { "id": "e1", "label": "scale-up", "expression": "(m1+m2+m3)/(m4 + 0.1)", "visible": true } ],
+        [ "AWS/SQS", "ApproximateNumberOfMessagesDelayed", "QueueName", "krithi-queue.fifo", { "stat": "Average", "id": "m1", "visible": false } ],
+        [ ".", "ApproximateNumberOfMessagesNotVisible", ".", ".", { "stat": "Average", "id": "m2", "visible": false } ],
+        [ ".", "ApproximateNumberOfMessagesVisible", ".", ".", { "stat": "Average", "id": "m3", "visible": false } ],
+        [ "AWS/AutoScaling", "GroupInServiceInstances", "AutoScalingGroupName", "as-group-1", { "stat": "Average", "id": "m4", "visible": false } ]
+    ],
+    "view": "timeSeries",
+    "stacked": false,   
+    "period": 60,
+    "region": "us-east-2"
+}
+//----------------------------------------------------------/
+
+ScaleDown:
+{
+    "metrics": [
+        [ { "id": "e1", "label": "scale-down", "expression": "(m1+m2+m3)/(m4 + 0.1)", "visible": true } ],
+        [ "AWS/SQS", "ApproximateNumberOfMessagesDelayed", "QueueName", "krithi-queue.fifo", { "stat": "Average", "id": "m1", "visible": false } ],
+        [ ".", "ApproximateNumberOfMessagesNotVisible", ".", ".", { "stat": "Average", "id": "m2", "visible": false } ],
+        [ ".", "ApproximateNumberOfMessagesVisible", ".", ".", { "stat": "Average", "id": "m3", "visible": false } ],
+        [ "AWS/AutoScaling", "GroupInServiceInstances", "AutoScalingGroupName", "as-group-1", { "stat": "Average", "id": "m4", "visible": false } ]
+    ],
+    "view": "timeSeries",
+    "stacked": false,
+    "period": 60,
+    "region": "us-east-2"
+}
+
+
+
+ssh -i "toronto-key.pem" ubuntu@ec2-3-145-26-222.us-east-2.compute.amazonaws.com
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDmpPxa1HDCIdrx1G4KvTk/90sXxG0VKvf3tpcAL/NePJZTYlTqhrhae7m4G2SYJ0vhA4g5aQXTwUaCdVq9QLbFWc4mh7Zx4S9J7R673iv1SipnpTZEDewV33hzP20AaegF8eZgI7iRrjugd5kB0BYqyeEK9yyrXKtyxBhBAiIFlYl1FxKJpXpDOmRJ6nvgXaQ1GtA+R+PbjpJkUDsuQA0lZvDkyoJ/pAGcPRo2BJCwbgoWH62B2HkKfxNxsGe4cn5fSifAcs7pGGk8yRL8YU4+Ip7wZFKnNkegYIIPzaYMrue6zRDpsM1FFEIiJbsJmqSMGJeuuHkSvFTiT+J8Vynmf/azuSSQqcsmSTRdGr+c4VvUqvF568SBIY8gOSaWMSciWcvV7KMXn1jBXunsCagd3kjXgFnRydWKPJokRFn9I5rlMVEzqzB+p8B4q8BVPKDA4LwvRuiQinlBJeHOOW3IkoallrpO9Pu50S1ZK/Wj1CLOY8Wn/0ywGOusx8fGzGUk4pa9mUXF8wlC6MlDtrBWjMmtZFDoIze0NAHKcFYLXaHK50KC/cE5RErn0aVIbgO1SvpNNCQzW42yMS2ZhUWt7EsH444KkEOwaxWLivEYl972GvCHAE0G10nLYgthau5mr/pw4R5ExjQZyJJWoULFv5AK0H6As1JysC4T1dLxVQ== email@gmail.com
+
+
+* * * * * /home/ubuntu/miniconda3/bin/python /home/ubuntu/tact/t-scraper/tact_scanner_sqs.py
+
+
+
+
+plugins=(git
+    docker
+    docker-compose
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    vscode
+    python
+    themes
+    kubectl
+    history
+    emoji
+)
+
+open ~/.oh-my-zsh/plugins
+
+
+https://github.com/tactlabs/gunicorn-flask-docker
+
+git clone git@github.com:tactlabs/gunicorn-flask-docker.git
+
+
+
+----------------
+------------------------
+Logging with Cloud Watch:
+
+https://hands-on.cloud/working-with-cloudwatch-in-python-using-boto3/
+
+
+https://pypi.org/project/opensearch-logger/
+
+https://opensearch.org/downloads.html
+
+https://www.techchorus.net/blog/logging-from-flask-application-to-elasticsearch-via-logstash/
+
+https://opensearch.org/docs/latest/clients/logstash/index/
+
+curl localhost:5000
+
+docker run --rm -it -v ~/pipeline/:/usr/share/logstash/pipeline/ docker.elastic.co/logstash/logstash:8.3.2
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
+
+docker run --name es02 --net elastic -p 9200:9200 -p 9300:9300 -it docker.elastic.co/elasticsearch/elasticsearch:8.3.2
+6V5e9Okb=moandIeXz=*
+
+https://localhost:9200/
+
+curl -u elastic:changeme localhost:9200
+
+docker cp es02:/usr/share/elasticsearch/config/certs/http_ca.crt .
+
+vi ~/pipeline/beats-input.conf
+input {
+  beats {
+    port => 5044
+  }
+}
+
+vi ~/pipeline/stdout.conf
+output {
+  elasticsearch { hosts => ["localhost:9200"] }
+  stdout { codec => rubydebug }
+}
+
+docker run --rm -it -v ~/pipeline/:/usr/share/logstash/pipeline/ docker.elastic.co/logstash/logstash:8.3.2
+
+http://elasticsearch:9200
+http://localhost:9200
+
+curl 'elasticsearch:9200/_cat/indices'
+
+curl '0.0.0.0:9200/_search?pretty=&q=message=hello'
+
+curl '0.0.0.0:9200'
+
+curl 0.0.0.0:9200
+
+
+127.0.0.1 elastic localhost
+    https://linuxhint.com/reload-edited-etchosts-linux/
+
+etc/hosts
+    getent hosts localhost
+    getent hosts elasticsearch
+
+    getent hosts elasticsearch
+    127.0.0.1 elasticsearch localhost
+
+curl http://localhost:5000
+------------------------/
+
+kubectl commands 
+
+eks:cluster-name: tact-test-cluster
+kubernetes.io/cluster/tact-test-cluster: owned
+group: tact-test-grp
+
+
+
+------------------
+kill a live port
+
+port kill / kill port
+
+sudo lsof -i :8000
+kill -9 
+
+kill -9 $(sudo lsof -i :8888) -> kill all the tasks a
+
+docker image vs container 
+what is eval ?
+
+list the available process 
+
+
+to build docker--> docker-compose up --build
+
+list the available process in docker --> 
+
+
+ssh-keygen -t rsa -b 4096 -C "dummyemail@gmail.com"
+
+
+1.1.pkl
+1.2.pkl
+
+sagemaker pipeline --> 
+
+------------------------------------------------------------------------------------------------------------
+November 6 2022 
+
+github : 4
+medium : 0
+kaggle : 1
+own blogs: 0
+resume : 3
+passing score : 30/50 
+total scores achieved : 8 
+
+December 6 2022 
+
+github : 5 - 15 minutes
+medium : 2 - 15 minutes
+kaggle : 3 - 
+own blogs: 2
+resume : 5
+passing score : 30/50 
+total scores achieved : 17
+
+------------------------------------------------------------------------------------------------------------
+
+
+how to check http auth in fast api 
+curl 127.0.0.1:8000/ping -u raja:rj
+http://127.0.0.1:8000/test
+
+curl -X 'GET' \
+  'http://127.0.0.1:8000/ping' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Basic cmFqYTpyag=='
+
+
+------------------------------------------------------------------------------------------------------------
+
+AWS AMI
+AWS Launch template
+AWS asg
+
+after google 
+explain on the task i am working.
+
+ssh -i "krithi-key.pem" ubuntu@ec2-18-221-156-29.us-east-2.compute.amazonaws.com
+
+ssh -i "krithi-key.pem" ubuntu@ec2-13-59-160-6.us-east-2.compute.amazonaws.com
+
+
+------------------------------------------------------------------------------------------------------------
+Sagemaker - accessing files from s3 and loading them back to s3 from sagemaker
+
+import numpy as np
+import pandas as pd
+import boto3
+import io
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+import pickle
+
+
+# csv_file_path = "data/data.csv"
+model_path    = "student_score.pkl"
+
+bucket = 'sagemaker-s3-integration-trial'
+file_key = 'sample-folder/data_v1.2.csv'
+
+s3_client = boto3.client('s3')
+
+obj = s3_client.get_object(Bucket=bucket, Key=file_key)
+
+df = pd.read_csv(io.BytesIO(obj['Body'].read()))
+
+for col in df.columns:
+    print(col)
+
+
+
+df.drop('Name', axis = 1, inplace = True)
+
+X = df.drop(['Hiring Rate', 'Hired'], axis = 1)
+
+y1 = df["Hiring Rate"]
+
+def get_model(X, y):
+    
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+    
+    linearmodel = LinearRegression()
+    linearmodel.fit(X_train,y_train)
+    
+    linearmodel.score(X_train,y_train)
+    
+    #linearmodel.score(X_test, y_test)
+    
+    X_test = X_test[0:1]
+    
+    # Making predictions
+    predictions = linearmodel.predict(X_test)
+    
+#     print(predictions[0])
+    
+    return linearmodel
+
+
+
+linearmodel = get_model(X, y1)
+
+
+def save_model(linearmodel):
+    
+    ### Create a Pickle file using serialization 
+    
+    pickle_out = open(model_path, "wb")
+    pickle.dump(linearmodel, pickle_out)
+    pickle_out.close()
+
+
+
+save_model(linearmodel)
+
+# new prediction
+'''
+Marks
+Projects
+Articles
+Network
+Relatives in the industry
+Knowledge of trendy topics
+Research work
+Personality mirroring
+Luck
+Demand and Supply factor
+Hiring Rate
+Hired
+'''
+
+def predict_hiring_rate(marks, projects, articles, network, relatives, 
+                        trendy_topic_knowledge, research_work, personality_mirroring, luck, 
+                       demand_and_supply_factor):
+    
+#     print(marks, projects)
+    
+    # load from pickle
+    loaded_model = pickle.load(open(model_path,'rb'))
+
+    new_score = pd.DataFrame(
+        {
+            'Marks' : marks,
+            'Projects' : projects,
+            'Articles' : articles,
+            'Network' : network,
+            'Relatives in the industry' : relatives,
+            'Knowledge of trendy topics' : trendy_topic_knowledge,
+            'Research work' : research_work,
+            'Personality mirroring' : personality_mirroring,
+            'Luck' : luck,
+            'Demand and Supply factor' : demand_and_supply_factor
+        },
+        index = [1]
+    )
+    
+    predictions = loaded_model.predict(new_score)
+    
+    return predictions[0]
+
+
+result = predict_hiring_rate(
+    marks = 90,
+    projects = 80, 
+    articles = 90, 
+    network = 100, 
+    relatives = 60, 
+    trendy_topic_knowledge = 80, 
+    research_work = 70, 
+    personality_mirroring = 90, 
+    luck = 80, 
+    demand_and_supply_factor = 90
+)
+
+
+result
+
+y2 = df["Hired"]
+
+linearmodel = get_model(X, y2)
+save_model(linearmodel)
+
+result = predict_hiring_rate(
+    marks = 90,
+    projects = 90, 
+    articles = 90, 
+    network = 100, 
+    relatives = 70, 
+    trendy_topic_knowledge = 80, 
+    research_work = 90, 
+    personality_mirroring = 90, 
+    luck = 80, 
+    demand_and_supply_factor = 90
+)
+
+
+result
+
+
+key='student_score_v1.1.pkl'
+s3_resource = boto3.resource('s3')
+# new_df.to_pickle(key)
+# s3_resource.Object(put_bucket, key).put(Body=open(key, 'rb'))
+
+s3_resource.Bucket(bucket).upload_file(key,'sample-folder/student_score_v1.4.pkl')
+
+
+
+pickle_buffer = io.BytesIO()
+s3_resource = boto3.resource('s3')
+
+new_df.to_pickle(pickle_buffer)
+s3_resource.Object(bucket, key).put(Body=pickle_buffer.getvalue())
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
